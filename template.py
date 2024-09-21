@@ -5,13 +5,13 @@ project_name = "us_visa"
 
 list_of_files = [
     f"{project_name}/__init__.py",
-    f"{project_name}/component/__init__.py",
-    f"{project_name}/component/data_ingestion.py",
-    f"{project_name}/component/data_validation.py",
-    f"{project_name}/component/transformation.py",
-    f"{project_name}/component/model_trainer.py",
-    f"{project_name}/component/model_evaluation.py",
-    f"{project_name}/component/model_pusher.py",
+    f"{project_name}/components/__init__.py",
+    f"{project_name}/components/data_ingestion.py",
+    f"{project_name}/components/data_validation.py",
+    f"{project_name}/components/data_transformation.py",
+    f"{project_name}/components/model_trainer.py",
+    f"{project_name}/components/model_evaluation.py",
+    f"{project_name}/components/model_pusher.py",
     f"{project_name}/configuration/__init__.py",
     f"{project_name}/constants/__init__.py",
     f"{project_name}/entity/__init__.py",
@@ -29,7 +29,7 @@ list_of_files = [
     "Dockerfile",
     "demo.py",
     "setup.py",
-    "config/model_yaml",
+    "config/model.yaml",
     "config/schema.yaml" 
 ]
 

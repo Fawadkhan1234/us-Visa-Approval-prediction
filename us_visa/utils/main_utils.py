@@ -4,7 +4,7 @@ import numpy as np
 import dill
 import yaml 
 from pandas import DataFrame
-from us_visa.exception import UsVisaException
+from us_visa.exception import USVisaException
 from us_visa.logger import logging
 
 
@@ -15,9 +15,9 @@ def read_yaml_file (file_path: str) -> dict:
     try:
         with open(file_path, 'rb') as file:
             return yaml.safe_load(file)
-    except Exce as e:
+    except Exception as e:
         logging.error(f"File not found: {file_path} \n error: {e}")
-        raise UsVisaException(e, sys) from e
+        raise USVisaException(e, sys) from e
 
 
     
@@ -34,7 +34,7 @@ def write_yaml_file(file_path: str, content: object, replace: bool = False) -> N
             yaml.dump(content, file)
     except Exception as e:
         logging.error(f"Error writing to file: {file_path} \n error: {e}")
-        raise UsVisaException(e, sys) from e
+        raise USVisaException(e, sys) from e
 
 
 def load_object(file_path: str) -> object:
@@ -46,7 +46,7 @@ def load_object(file_path: str) -> object:
             return obj
     except Exception as e:
         logging.error(f"Error loading object from file: {file_path} \n error: {e}")
-        raise UsVisaException(e, sys) from e
+        raise USVisaException(e, sys) from e
 
 
 def save_numpy_array_data(file_path: str, array: np.array):
@@ -63,7 +63,7 @@ def save_numpy_array_data(file_path: str, array: np.array):
             np.save(file_obj, array)
     except Exception as e:
         logging.error(f"Error saving numpy array to file: {file_path} \n error: {e}")
-        raise UsVisaException(e, sys) from e
+        raise USVisaException(e, sys) from e
     
 
 def load_numpy_array_data(file_path: str) -> np.array:
@@ -77,7 +77,7 @@ def load_numpy_array_data(file_path: str) -> np.array:
             return np.load(file_obj)
     except Exception as e:
         logging.error(f"Error loading numpy array from file: {file_path} \n error: {e}")
-        raise UsVisaException(e, sys) from e
+        raise USVisaException(e, sys) from e
     
 
 def save_object(file_path: str, obj: object) -> None:
@@ -93,7 +93,7 @@ def save_object(file_path: str, obj: object) -> None:
             dill.dump(obj, file_obj)
     except Exception as e:
         logging.error(f"Error saving object to file: {file_path} \n error: {e}")
-        raise UsVisaException(e, sys) from e
+        raise USVisaException(e, sys) from e
     
 
 def drop_columns(df: DataFrame, cols: list) -> DataFrame:
@@ -107,4 +107,4 @@ def drop_columns(df: DataFrame, cols: list) -> DataFrame:
         return df.drop(columns=cols, axis=1)
     except Exception as e:
         logging.error(f"Error dropping columns from DataFrame: {df} \n error: {e}")
-        raise UsVisaException(e, sys) from e
+        raise USVisaException(e, sys) from e
